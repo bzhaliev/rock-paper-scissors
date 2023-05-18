@@ -1,18 +1,76 @@
 body {
-    background: #DAEDFB;
+    font-family: 'Permanent Marker', cursive;
+    font-weight: 500;
+    background: black;
     display: flex;
-    justify-content: center;
+    justify-content: baseline;
     align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    
 }
 
 h1 {
-    color: red;
+    color: white;
+    margin-top:  100px;
 }
+
+div {
+  color: white;
+}
+
+.players, .score {
+  display: flex;
+  justify-content: space-around;
+}
+
+.score {
+  margin-top: 20px;
+}
+
+#buttons {
+  margin-top: 100px;;
+}
+
+.scoreboard {
+  margin-top: 70px;
+}
+
+.won, .lost, .tie {
+  margin-top: 20px;
+}
+
+#reset_btn {
+  --b: 3px;   /* border thickness */
+    --s: .15em; /* size of the corner */
+    --c: #ffffff;
+    
+    padding: calc(.05em + var(--s)) calc(.3em + var(--s));
+    color: var(--c);
+    --_p: var(--s);
+    background:
+      conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--c) 0)
+      var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+    transition: .3s linear, color 0s, background-color 0s;
+    outline: var(--b) solid #0000;
+    outline-offset: .2em;
+}
+
+#reset_btn:hover,
+  b#reset_btn:focus-visible{
+    --_p: 0px;
+    outline-color: var(--c);
+    outline-offset: .05em;
+  }
+  b#reset_btn:active {
+    background: var(--c);
+    color: #fff;
+  }
 
 button {
     --b: 3px;   /* border thickness */
     --s: .15em; /* size of the corner */
-    --c: #BD5532;
+    --c: #cf4f24;
     
     padding: calc(.05em + var(--s)) calc(.3em + var(--s));
     color: var(--c);

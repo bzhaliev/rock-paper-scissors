@@ -6,6 +6,8 @@ r.addEventListener('click', () => {
     let playerSelection = 'rock';
     console.log('Rock selected!');
     playRound(playerSelection, getComputerChoice());
+    you_score.textContent = player;
+    ultron_score.textContent = computer;
     console.log(player);
     console.log(computer);
     displayResult();
@@ -17,6 +19,8 @@ p.addEventListener('click', () => {
     let playerSelection = 'paper';
     console.log('Paper selected!');
     playRound(playerSelection, getComputerChoice());
+    you_score.textContent = player;
+    ultron_score.textContent = computer;
     console.log(player);
     console.log(computer);
     displayResult();
@@ -28,6 +32,8 @@ s.addEventListener('click', () => {
     let playerSelection = 'scissors';
     console.log('Scissors selected!');
     playRound(playerSelection, getComputerChoice());
+    you_score.textContent = player;
+    ultron_score.textContent = computer;
     console.log(player);
     console.log(computer);
     displayResult();
@@ -38,6 +44,9 @@ function getComputerChoice () {
     const randomElement = Math.floor(Math.random()*elements.length);
     return elements[randomElement];
 }
+
+const you_score = document.querySelector('.score_you');
+const ultron_score = document.querySelector('.score_ultron');
 
 function playRound(playerSelection, computerSelection) {
     
@@ -82,7 +91,7 @@ function playRound(playerSelection, computerSelection) {
 let player = 0;
 let computer = 0;
 
-const content = document.querySelector('#content');
+const content = document.querySelector('#body');
 
 const won = document.createElement('div');
 won.textContent = 'YOU WON!';
@@ -104,8 +113,11 @@ function displayResult() {
         //console.log("YOU WON!");
         const reset1 = document.createElement('button');
         reset1.textContent = 'Reset';
+        reset1.setAttribute('id', 'reset_btn');
         content.appendChild(reset1);
         reset1.addEventListener('click', () => {
+            you_score.textContent = 0;
+            ultron_score.textContent = 0;
             content.removeChild(won);
             content.removeChild(reset1);
         });
@@ -118,8 +130,11 @@ function displayResult() {
         //console.log("YOU LOST!");
         const reset2 = document.createElement('button');
         reset2.textContent = 'Reset';
+        reset2.setAttribute('id', 'reset_btn');
         content.appendChild(reset2);
         reset2.addEventListener('click', () => {
+            you_score.textContent = 0;
+            ultron_score.textContent = 0;
             content.removeChild(lost);
             content.removeChild(reset2);
         });
@@ -130,8 +145,11 @@ function displayResult() {
         //console.log("TIE!");
         const reset3 = document.createElement('button');
         reset3.textContent = 'Reset';
+        reset3.setAttribute('id', 'reset_btn');
         content.appendChild(reset3);
         reset3.addEventListener('click', () => {
+            you_score.textContent = 0;
+            ultron_score.textContent = 0;
             content.removeChild(tie);
             content.removeChild(reset3);
         });
