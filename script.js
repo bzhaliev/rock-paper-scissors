@@ -5,12 +5,14 @@ const r = document.querySelector('#btn_rock');
 r.addEventListener('click', () => {
     let playerSelection = 'rock';
     console.log('Rock selected!');
-    playRound(playerSelection, getComputerChoice());
-    you_score.textContent = player;
-    ultron_score.textContent = computer;
-    console.log(player);
-    console.log(computer);
-    displayResult();
+    if (!(player ==5 || computer ==5)) {
+        playRound(playerSelection, getComputerChoice());
+        you_score.textContent = player;
+        ultron_score.textContent = computer;
+        console.log(player);
+        console.log(computer);
+        displayResult();
+    }
 });
 
 const p = document.querySelector("#btn_paper");
@@ -18,12 +20,14 @@ const p = document.querySelector("#btn_paper");
 p.addEventListener('click', () => {
     let playerSelection = 'paper';
     console.log('Paper selected!');
-    playRound(playerSelection, getComputerChoice());
-    you_score.textContent = player;
-    ultron_score.textContent = computer;
-    console.log(player);
-    console.log(computer);
-    displayResult();
+    if (!(player ==5 || computer ==5)) {
+        playRound(playerSelection, getComputerChoice());
+        you_score.textContent = player;
+        ultron_score.textContent = computer;
+        console.log(player);
+        console.log(computer);
+        displayResult();
+    }
 });
 
 const s = document.querySelector("#btn_scissors");
@@ -31,12 +35,14 @@ const s = document.querySelector("#btn_scissors");
 s.addEventListener('click', () => {
     let playerSelection = 'scissors';
     console.log('Scissors selected!');
-    playRound(playerSelection, getComputerChoice());
-    you_score.textContent = player;
-    ultron_score.textContent = computer;
-    console.log(player);
-    console.log(computer);
-    displayResult();
+    if (!(player ==5 || computer ==5)) {
+        playRound(playerSelection, getComputerChoice());
+        you_score.textContent = player;
+        ultron_score.textContent = computer;
+        console.log(player);
+        console.log(computer);
+        displayResult();
+    }
 });
 
 function getComputerChoice () {
@@ -109,6 +115,7 @@ function displayResult() {
         content.removeChild(tie);
     }*/
     if (player == 5) {
+        won.setAttribute('class', 'won');
         content.appendChild(won);
         //console.log("YOU WON!");
         const reset1 = document.createElement('button');
@@ -120,12 +127,13 @@ function displayResult() {
             ultron_score.textContent = 0;
             content.removeChild(won);
             content.removeChild(reset1);
+            return player = 0, computer = 0;
         });
-        return player = 0, computer = 0;
         
     }
     
     else if (computer == 5) {
+        lost.setAttribute('class', 'lost');
         content.appendChild(lost);
         //console.log("YOU LOST!");
         const reset2 = document.createElement('button');
@@ -137,10 +145,11 @@ function displayResult() {
             ultron_score.textContent = 0;
             content.removeChild(lost);
             content.removeChild(reset2);
+            return player = 0, computer = 0;
         });
-        return player = 0, computer = 0;
     }
     else if (player == 5 && computer == 5) {
+        tie.setAttribute('class', 'tie');
         content.appendChild(tie);
         //console.log("TIE!");
         const reset3 = document.createElement('button');
@@ -152,7 +161,7 @@ function displayResult() {
             ultron_score.textContent = 0;
             content.removeChild(tie);
             content.removeChild(reset3);
+            return player = 0, computer = 0;
         });
-        return player = 0, computer = 0;
     }
 }
